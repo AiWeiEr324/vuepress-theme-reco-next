@@ -11,11 +11,9 @@ const isDarkMode = ref(false)
 const icon = computed(() => {
   return isDarkMode.value ? 'Sun' : 'MoonStars'
 })
-
 let toggleMode = () => {
   isDarkMode.value = !isDarkMode.value
 }
-
 onMounted(() => {
   let userPreference = localStorage[APPEARANCE_KEY] || 'auto'
 
@@ -38,13 +36,11 @@ onMounted(() => {
       : query.matches ? 'light' : 'auto'
     setClass(isDarkMode.value)
   })
-
   const initMode = () => {
     isDarkMode.value = userPreference === 'auto'
       ? query.matches
       : userPreference === 'dark'
   }
-
   initMode()
 })
 </script>
